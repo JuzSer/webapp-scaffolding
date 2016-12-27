@@ -1,0 +1,26 @@
+@mixin rectangle-maker($ratio) {
+  overflow: hidden;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: ($ratio * 100%);
+  }
+
+  .rec-fill {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+.square {
+  @include rectangle-maker(1);
+}
+.circle {
+  border-radius: 50%;
+}

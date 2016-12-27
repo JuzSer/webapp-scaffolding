@@ -1,0 +1,18 @@
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+
+// Images
+.img-full {
+  width: 100%;
+}
+.img-semantic {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  text-indent: -9000px;
+}

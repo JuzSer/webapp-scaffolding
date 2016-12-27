@@ -1,0 +1,97 @@
+/* === Responsive config === */
+// Default Breakpoints
+$rpsBpDesktop: 1280px;
+$rpsBpTablet: 960px;
+$rpsBpMoblet: 768px;
+$rpsBpMobile: 480px;
+
+/* Mixins */
+/*
+--- Formula ---
+gte: greater than & equal (>=)
+lte: lower than & equal (<=)
+
+min = variable + 1
+max = variable - 1
+*/
+$minHiresDesktop: $rpsBpDesktop + 1px;
+$minDesktop: $rpsBpTablet + 1px;
+$minTablet: $rpsBpMoblet + 1px;
+$minMoblet: $rpsBpMobile + 1px;
+
+$maxDesktop: $rpsBpDesktop - 1px;
+$maxTablet: $rpsBpTablet - 1px;
+$maxMoblet: $rpsBpMoblet - 1px;
+$maxMobile: $rpsBpMobile - 1px;
+
+
+/* >= 1280 */
+@mixin gte-xl {
+  @media only screen and (min-width: #{$rpsBpDesktop}) {
+    @content;
+  }
+}
+/* <= 1279 */
+@mixin lt-xl {
+  @media only screen and (max-width: #{$maxDesktop}) {
+    @content;
+  }
+}
+/* 960 <= x < 1279  */
+@mixin only-lg {
+  @media only screen and (min-width: #{$rpsBpTablet}) and (max-width: #{$maxDesktop}) {
+    @content;
+  }
+}
+/* <= 959 */
+@mixin lt-md {
+  @media only screen and (max-width: #{$maxTablet}) {
+    @content;
+  }
+}
+/* 768 <= x < 959  */
+@mixin only-md {
+  @media only screen and (min-width: #{$rpsBpMoblet}) and (max-width: #{$maxTablet}) {
+    @content;
+  }
+}
+/* <= 767 */
+@mixin lt-sm {
+  @media only screen and (max-width: #{$maxMoblet}) {
+    @content;
+  }
+}
+/* 480 <= x < 767  */
+@mixin only-sm {
+  @media only screen and (min-width: #{$rpsBpMobile}) and (max-width: #{$maxMoblet}) {
+    @content;
+  }
+}
+/* <= 479 */
+@mixin lt-xs {
+  @media only screen and (max-width: #{$maxMobile}) {
+    @content;
+  }
+}
+
+/* Retina */
+@mixin retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-moz-min-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and (min-resolution: 192dpi),only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+// ----------------------------------------------------------------------
+// Media Query Breakpoints
+// ----------------------------------------------------------------------
+// example @include breakpoint(940) { width:80%; }
+
+@mixin breakpoint($size) {
+  @media only screen and (max-width: $size + px) { @content; }
+}
+
+// example @include breakpoint(768, 992) { width:80%; }
+
+@mixin breakpointRange($sizemin, $sizemax) {
+  @media only screen and (min-width: $sizemin + px) and (max-width: $sizemax + px) { @content; }
+}

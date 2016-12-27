@@ -30,5 +30,5 @@ assets/
 
 ### Production building
 
-Run this to build a production version: `gulp build`
+Run this to build a production version: `gulp`
 

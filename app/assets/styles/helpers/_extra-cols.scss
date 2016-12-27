@@ -1,0 +1,14 @@
+.oe-row-non-gap {
+  margin-left: 0;
+  margin-right: 0;
+}
+.oe-col {
+  .oe-row-non-gap & {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.oe-col-2-10 {
+  float: left;
+  width: 20%;
+}

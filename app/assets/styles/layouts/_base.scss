@@ -1,0 +1,26 @@
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  width: 100%;
+  overflow-x: hidden;
+  color: $textColor;
+  font-size: $fontSize;
+  font-family: $fontFamily;
+
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+a {
+  text-decoration: none;
+
+  &,
+  &:focus,
+  &:active,
+  &:hover {
+    outline: 0;
+    text-decoration: none;
+    color: inherit;
+  }
+}

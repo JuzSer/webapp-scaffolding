@@ -1,0 +1,48 @@
+// Spacing
+// ------
+.nm {
+  margin: 0;
+}
+.nvm {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+// auto generate pt, pb, mt, mb (1x, 2x,...)
+$i: 10;
+@while $i >= 0 {
+  .pd#{$i}x {
+    padding: $i * $spacing;
+  }
+  .pl#{$i}x {
+    padding-left: $i * $spacing;
+  }
+  .pr#{$i}x {
+    padding-right: $i * $spacing;
+  }
+  .pt#{$i}x {
+    padding-top: $i * $spacing;
+  }
+  .pb#{$i}x {
+    padding-bottom: $i * $spacing;
+  }
+  .pv#{$i}x {
+    padding-top: $i * $spacing;
+    padding-bottom: $i * $spacing;
+  }
+  .ph#{$i}x {
+    padding-left: $i * $spacing;
+    padding-right: $i * $spacing;
+  }
+  .mt#{$i}x {
+    margin-top: $i * $spacing;
+  }
+  .mb#{$i}x {
+    margin-bottom: $i * $spacing;
+  }
+  .mv#{$i}x {
+    margin-top: $i * $spacing;
+    margin-bottom: $i * $spacing;
+  }
+
+  $i: $i - 1;
+}

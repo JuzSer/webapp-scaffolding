@@ -1,0 +1,28 @@
+/* Font weight */
+.font-light {
+  font-weight: 300;
+}
+.font-regular {
+  font-weight: 400;
+}
+.font-bold {
+  font-weight: 700;
+}
+
+/* Font size */
+.font-xs {
+  font-size: 0.7em;
+}
+.font-sm {
+  font-size: 0.8em;
+}
+.font-md {
+  font-size: $fontSize;
+  line-height: 1.4em;
+}
+.font-lg {
+  font-size: 1.4em;
+}
+.font-xl {
+  font-size: 1.8em;
+}

@@ -1,0 +1,131 @@
+@mixin cleaner {
+    padding: 0;
+    margin: 0;
+}
+@mixin ul-nostyle {
+    @include cleaner;
+    list-style: none;
+}
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin circle() {
+  @include border-radius(100%);
+}
+@mixin background-size($arg) {
+    -webkit-background-size: $arg;
+    -moz-background-size: $arg;
+    background-size: $arg;
+}
+@mixin background-clip($arg) {
+    -webkit-background-clip: $arg;
+    -moz-background-clip: $arg;
+    background-clip: $arg;
+}
+@mixin filter($arg) {
+    -webkit-filter: $arg;
+    -ms-filter: $arg;
+    -o-filter: $arg;
+    filter: $arg;
+}
+@mixin transform-style($arg) {
+    -webkit-transform-style: $arg;
+    -moz-transform-style: $arg;
+    transform-style: $arg;
+}
+@mixin animation-fill-mode($arg) {
+    -webkit-animation-fill-mode: $arg;
+    -moz-animation-fill-mode: $arg;
+    animation-fill-mode: $arg;
+}
+@mixin preserve-3d {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+@mixin backface-visibility($arg) {
+    -webkit-backface-visibility: $arg;
+    -ms-backface-visibility: $arg;
+    backface-visibility: $arg;
+}
+
+
+@mixin appearance($arg) {
+  appearance: $arg;
+  -moz-appearance: $arg;
+  -webkit-appearance: $arg;
+}
+
+@mixin rotate3d($x, $y, $z, $w) {
+  -webkit-transform: rotate3d($x, $y, $z, $w);
+  -moz-transform: rotate3d($x, $y, $z, $w);
+  transform: rotate3d($x, $y, $z, $w);
+}
+@mixin blur($x) {
+  filter:blur($x);
+  -o-filter:blur($x);
+  -ms-filter:blur($x);
+  -moz-filter:blur($x);
+  -webkit-filter:blur($x);
+}
+@mixin grayscale($p) {
+  filter:grayscale($p);
+  -o-filter:grayscale($p);
+  -ms-filter:grayscale($p);
+  -moz-filter:grayscale($p);
+  -webkit-filter:grayscale($p);
+}
+@mixin transition-transform($duration: 200ms, $easing: linear) {
+  -webkit-transition: -webkit-transform $duration $easing;
+  -moz-transition: -moz-transform $duration $easing;
+  transition: transform $duration $easing;
+}
+@mixin transform($p...) {
+  -webkit-transform: $p;
+  -moz-transform: $p;
+  transform: $p;
+}
+
+@mixin transition-multi($value...) {
+  -webkit-transition: $value;
+  -moz-transition: $value;
+  -ms-transition: $value;
+  -o-transition: $value;
+  transition: $value;
+}
+
+// Text overflow
+// Requires inline-block or block for proper styling
+// Single line
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// Multiple Line
+@mixin multiLineEllipsis($lineHeight: 1.4em, $lineCount: 1, $bgColor: $white){
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight;
+  max-height: $lineHeight * $lineCount;
+  &:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-left: 10px;
+    background: linear-gradient(to right, transparent, $bgColor, $bgColor);
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: $bgColor;
+  }
+}
